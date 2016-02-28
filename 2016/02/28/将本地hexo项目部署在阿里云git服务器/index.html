@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>将本地hexo项目部署在阿里云git服务器 | zylqmjforever</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="zylqmjforever,前端,frontend,design,JavaScript" />
+  
+
+  <meta name="description" content="记一次将本地hexo博客变为git项目，并上传到自己的阿里云git服务器上1.阿里云服务器上新建一个空的git项目,一定要git用户登录,不要root用户登录1ssh git@ip(&amp;#20320;&amp;#33258;&amp;#24049;&amp;#30340;IP&amp;#22320;&amp;#22336;)&amp;#10;&amp;#10;Welcome to aliyun Elastic Compute Service!&amp;#10;[">
+<meta property="og:type" content="article">
+<meta property="og:title" content="将本地hexo项目部署在阿里云git服务器">
+<meta property="og:url" content="http://yoursite.com/2016/02/28/将本地hexo项目部署在阿里云git服务器/index.html">
+<meta property="og:site_name" content="zylqmjforever">
+<meta property="og:description" content="记一次将本地hexo博客变为git项目，并上传到自己的阿里云git服务器上1.阿里云服务器上新建一个空的git项目,一定要git用户登录,不要root用户登录1ssh git@ip(&amp;#20320;&amp;#33258;&amp;#24049;&amp;#30340;IP&amp;#22320;&amp;#22336;)&amp;#10;&amp;#10;Welcome to aliyun Elastic Compute Service!&amp;#10;[">
+<meta property="og:image" content="http://bruce.u.qiniudn.com/2013/11/27/reading/photos-0.jpg">
+<meta property="og:updated_time" content="2016-02-28T03:55:34.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="将本地hexo项目部署在阿里云git服务器">
+<meta name="twitter:description" content="记一次将本地hexo博客变为git项目，并上传到自己的阿里云git服务器上1.阿里云服务器上新建一个空的git项目,一定要git用户登录,不要root用户登录1ssh git@ip(&amp;#20320;&amp;#33258;&amp;#24049;&amp;#30340;IP&amp;#22320;&amp;#22336;)&amp;#10;&amp;#10;Welcome to aliyun Elastic Compute Service!&amp;#10;[">
+  
+  
+
+  
+
+
+  <link rel="stylesheet" href="/css/styles.css" type="text/css">
+  
+
+  
+
+  <script src="http://cdn.bootcss.com/jquery/3.0.0-beta1/jquery.min.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function () {
+    $('.content-home').addClass("magictime puffIn boingInUp")
+    $(".item").addClass('magictime puffIn');
+    $(".item").addClass('magictime puffIn boingInUp')
+  })
+  </script>
+</head>
+
+<body>
+  <div class="content-post">
+  <div class="toolbox">
+  <div class="toolbox-entry">盒子</div>
+  <ul class="list-toolbox">
+    
+      
+        <li class="item-toolbox">
+          <a href="/">首页</a>
+        </li>
+      
+    
+      
+        <li class="item-toolbox">
+          <a href="/archives/">博客</a>
+        </li>
+      
+    
+      
+        <li class="item-toolbox">
+          <a href="/category/">分类</a>
+        </li>
+      
+    
+      
+        <li class="item-toolbox">
+          <a href="/tags/">标签</a>
+        </li>
+      
+    
+      
+        <li class="item-toolbox">
+          <a href="/about/">关于</a>
+        </li>
+      
+    
+      
+        <li class="item-toolbox">
+          <a href="/atom.xml">RSS</a>
+        </li>
+      
+    
+  </ul>
+</div>
+
+  <article id="post-将本地hexo项目部署在阿里云git服务器" class="article article-type-post" itemscope itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">将本地hexo项目部署在阿里云git服务器</h1>
+
+    <div class="article-meta">
+      <span>2016-02-28</span>
+
+      <span> | </span>
+
+      <span class="article-author">zyl</span>
+
+      <span> | </span>
+
+      
+  <span class="article-category">
+    <a class="article-category-link" href="/categories/Javascript-Nodejs-Css-Linux/">Javascript Nodejs Css Linux</a>
+  </span>
+
+
+    </div>
+  </header>
+
+  <div class="article-inner">
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="记一次将本地hexo博客变为git项目，并上传到自己的阿里云git服务器上"><a href="#记一次将本地hexo博客变为git项目，并上传到自己的阿里云git服务器上" class="headerlink" title="记一次将本地hexo博客变为git项目，并上传到自己的阿里云git服务器上"></a>记一次将本地hexo博客变为git项目，并上传到自己的阿里云git服务器上</h3><h4 id="1-阿里云服务器上新建一个空的git项目-一定要git用户登录-不要root用户登录"><a href="#1-阿里云服务器上新建一个空的git项目-一定要git用户登录-不要root用户登录" class="headerlink" title="1.阿里云服务器上新建一个空的git项目,一定要git用户登录,不要root用户登录"></a>1.阿里云服务器上新建一个空的git项目,一定要git用户登录,不要root用户登录</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh git@ip(&#20320;&#33258;&#24049;&#30340;IP&#22320;&#22336;)&#10;&#10;Welcome to aliyun Elastic Compute Service!&#10;[git@iZ2893sukboZ ~]#</span><br></pre></td></tr></table></figure>
+<h4 id="我的git目录在-home-git-repository-在该目录下新建一个空的git项目"><a href="#我的git目录在-home-git-repository-在该目录下新建一个空的git项目" class="headerlink" title="我的git目录在 /home/git/repository,在该目录下新建一个空的git项目"></a>我的git目录在 /home/git/repository,在该目录下新建一个空的git项目</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init --bare myBlog</span><br></pre></td></tr></table></figure>
+<h4 id="回到本地，clone-阿里云git-服务器上刚刚新建的-myBlog-git-项目"><a href="#回到本地，clone-阿里云git-服务器上刚刚新建的-myBlog-git-项目" class="headerlink" title="回到本地，clone 阿里云git 服务器上刚刚新建的 myBlog git 项目"></a>回到本地，clone 阿里云git 服务器上刚刚新建的 myBlog git 项目</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone git@ip:/home/git/repository/myBlog&#10;cd myBlog&#10;cp -R ~/BLOG myBlog # &#23558;&#26412;&#22320;&#24314;&#22909;&#30340;BLOG &#22797;&#21046;&#21040;&#31354;&#30340;myBlog&#39033;&#30446;&#37324;&#10;git add .&#10;git commit &#34;&#23558;&#26412;&#22320;myBlog push &#21040;git&#26381;&#21153;&#22120;&#19978;&#34;&#10;git push origin master</span><br></pre></td></tr></table></figure>
+<h4 id="2-将myBlog-部署在阿里云本机"><a href="#2-将myBlog-部署在阿里云本机" class="headerlink" title="2.将myBlog 部署在阿里云本机"></a>2.将myBlog 部署在阿里云本机</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone /home/git/repository/myBlog&#10;&#10;cd myBlog &#10;&#10;npm install&#10;&#10;hexo g&#10;&#10;hexo server</span><br></pre></td></tr></table></figure>
+<h4 id="3-浏览器访问你的博客"><a href="#3-浏览器访问你的博客" class="headerlink" title="3 浏览器访问你的博客"></a>3 浏览器访问你的博客</h4><p><a href="http://ip:4000" target="_blank" rel="external">http://ip:4000</a> # ip 为你的阿里云ip</p>
+<h4 id="4-安装nvm-node-hexo"><a href="#4-安装nvm-node-hexo" class="headerlink" title="4 安装nvm ,node, hexo"></a>4 安装nvm ,node, hexo</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.30.1/install.sh | bash&#10;&#10;nvm use v0.12.10&#10;&#10;npm install hexo -g</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+  </div>
+</article>
+
+
+
+
+
+  <section class="duoshuo-comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="" data-title="将本地hexo项目部署在阿里云git服务器" data-url="http://yoursite.com/2016/02/28/将本地hexo项目部署在阿里云git服务器/index.html"></div>
+    <!-- 多说评论框 end -->
+  </section>
+
+
+</div>
+
+  
+
+  <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"zylqmjforever"};
+(function() {
+  var ds = document.createElement('script');
+  ds.type = 'text/javascript';ds.async = true;
+  ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+  ds.charset = 'UTF-8';
+  (document.getElementsByTagName('head')[0]
+   || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+<!-- 多说公共JS代码 end -->
+
+</body>
+</html>
