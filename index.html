@@ -36,8 +36,18 @@
   $(document).ready(function () {
     $('.content-home').addClass("magictime puffIn boingInUp")
     $(".item").addClass('magictime puffIn');
-    $(".item").addClass('magictime puffIn boingInUp')
-  })
+    $(".item").addClass('magictime puffIn boingInUp');
+    var url = 'https://api.flickr.com/services/feeds/photos_public.gne?tags=cats&format=json&jsoncallback=?';
+    $.ajax({
+      url:url,
+      type : 'GET',
+      success : function (err,res) {
+        if (err) {console.log(err) };
+        console.log(res)
+      }
+
+    })
+  });
   </script>
 </head>
 

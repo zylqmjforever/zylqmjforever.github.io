@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>也来谈css 盒子模型 | zylqmjforever</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="zylqmjforever,前端,frontend,design,JavaScript" />
+  
+
+  <meta name="description" content="概述－内容(content)、填充(padding)、边框(border)、边界(margin)，CSS盒子模型都具备这些属性－盒子模型是css中一个重要的概念，理解了盒子模型才能更好的排版。其实盒子模型有两种，分别是 ie 盒子模型和标准 w3c 盒子模型。他们对盒子模型的解释各不相同。
+w3c标准盒子模型1/*&amp;#22806;&amp;#30418;&amp;#23610;&amp;#23544;&amp;#35745;&amp;#">
+<meta property="og:type" content="article">
+<meta property="og:title" content="也来谈css 盒子模型">
+<meta property="og:url" content="http://yoursite.com/2015/10/03/也来谈css-盒子模型/index.html">
+<meta property="og:site_name" content="zylqmjforever">
+<meta property="og:description" content="概述－内容(content)、填充(padding)、边框(border)、边界(margin)，CSS盒子模型都具备这些属性－盒子模型是css中一个重要的概念，理解了盒子模型才能更好的排版。其实盒子模型有两种，分别是 ie 盒子模型和标准 w3c 盒子模型。他们对盒子模型的解释各不相同。
+w3c标准盒子模型1/*&amp;#22806;&amp;#30418;&amp;#23610;&amp;#23544;&amp;#35745;&amp;#">
+<meta property="og:image" content="http://bruce.u.qiniudn.com/2013/11/27/reading/photos-0.jpg">
+<meta property="og:updated_time" content="2016-03-03T09:13:26.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="也来谈css 盒子模型">
+<meta name="twitter:description" content="概述－内容(content)、填充(padding)、边框(border)、边界(margin)，CSS盒子模型都具备这些属性－盒子模型是css中一个重要的概念，理解了盒子模型才能更好的排版。其实盒子模型有两种，分别是 ie 盒子模型和标准 w3c 盒子模型。他们对盒子模型的解释各不相同。
+w3c标准盒子模型1/*&amp;#22806;&amp;#30418;&amp;#23610;&amp;#23544;&amp;#35745;&amp;#">
+  
+  
+
+  
+
+
+  <link rel="stylesheet" href="/css/styles.css" type="text/css">
+  
+
+  
+
+  <script src="http://cdn.bootcss.com/jquery/3.0.0-beta1/jquery.min.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function () {
+    $('.content-home').addClass("magictime puffIn boingInUp")
+    $(".item").addClass('magictime puffIn');
+    $(".item").addClass('magictime puffIn boingInUp');
+    var url = 'https://api.flickr.com/services/feeds/photos_public.gne?tags=cats&format=json&jsoncallback=?';
+    $.ajax({
+      url:url,
+      type : 'GET',
+      success : function (err,res) {
+        if (err) {console.log(err) };
+        console.log(res)
+      }
+
+    })
+  });
+  </script>
+</head>
+
+<body>
+  <div class="content-post">
+  <div class="toolbox">
+  <div class="toolbox-entry">盒子</div>
+  <ul class="list-toolbox">
+    
+      
+        <li class="item-toolbox">
+          <a href="/">首页</a>
+        </li>
+      
+    
+      
+        <li class="item-toolbox">
+          <a href="/archives/">博客</a>
+        </li>
+      
+    
+      
+        <li class="item-toolbox">
+          <a href="/category/">分类</a>
+        </li>
+      
+    
+      
+        <li class="item-toolbox">
+          <a href="/tags/">标签</a>
+        </li>
+      
+    
+      
+        <li class="item-toolbox">
+          <a href="/about/">关于</a>
+        </li>
+      
+    
+      
+        <li class="item-toolbox">
+          <a href="/atom.xml">RSS</a>
+        </li>
+      
+    
+  </ul>
+</div>
+
+  <article id="post-也来谈css-盒子模型" class="article article-type-post" itemscope itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">也来谈css 盒子模型</h1>
+
+    <div class="article-meta">
+      <span>2015-10-03</span>
+
+      <span> | </span>
+
+      <span class="article-author">zyl</span>
+
+      <span> | </span>
+
+      
+  <span class="article-category">
+    <a class="article-category-link" href="/categories/Javascript-Nodejs-Css-Linux/">Javascript Nodejs Css Linux</a>
+  </span>
+
+
+    </div>
+  </header>
+
+  <div class="article-inner">
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>－内容(content)、填充(padding)、边框(border)、边界(margin)，CSS盒子模型都具备这些属性<br>－盒子模型是css中一个重要的概念，理解了盒子模型才能更好的排版。其实盒子模型有两种，分别是 ie 盒子模型和标准 w3c 盒子模型。他们对盒子模型的解释各不相同。</p>
+<h4 id="w3c标准盒子模型"><a href="#w3c标准盒子模型" class="headerlink" title="w3c标准盒子模型"></a>w3c标准盒子模型</h4><p><img src="http://ww1.sinaimg.cn/large/79462090jw1f1it8lp6ssj20kq0cnjs4.jpg" alt="标准盒子模型"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/*&#22806;&#30418;&#23610;&#23544;&#35745;&#31639;&#65288;&#20803;&#32032;&#31354;&#38388;&#23610;&#23544;&#65289;*/&#10; Element&#31354;&#38388;&#39640;&#24230; = content height + padding + border + margin&#10; Element &#31354;&#38388;&#23485;&#24230; = content width + padding + border + margin&#10; /*&#20869;&#30418;&#23610;&#23544;&#35745;&#31639;&#65288;&#20803;&#32032;&#22823;&#23567;&#65289;*/&#10; Element Height = content height + padding + border &#65288;Height&#20026;&#20869;&#23481;&#39640;&#24230;&#65289;&#10; Element Width = content width + padding + border &#65288;Width&#20026;&#20869;&#23481;&#23485;&#24230;&#65289;</span><br></pre></td></tr></table></figure></p>
+<h4 id="ie盒子模型"><a href="#ie盒子模型" class="headerlink" title="ie盒子模型"></a>ie盒子模型</h4><p><img src="http://ww3.sinaimg.cn/large/79462090jw1f1it9z7ugkj20lz0cu0tf.jpg" alt="ie盒子模型"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/*&#22806;&#30418;&#23610;&#23544;&#35745;&#31639;&#65288;&#20803;&#32032;&#31354;&#38388;&#23610;&#23544;&#65289;*/&#10;  Element&#31354;&#38388;&#39640;&#24230; = content Height + margin (Height&#21253;&#21547;&#20102;&#20803;&#32032;&#20869;&#23481;&#23485;&#24230;&#65292;&#36793;&#26694;&#23485;&#24230;&#65292;&#20869;&#36317;&#23485;&#24230;)&#10;  Element&#31354;&#38388;&#23485;&#24230; = content Width + margin (Width&#21253;&#21547;&#20102;&#20803;&#32032;&#20869;&#23481;&#23485;&#24230;&#12289;&#36793;&#26694;&#23485;&#24230;&#12289;&#20869;&#36317;&#23485;&#24230;)&#10;  /*&#20869;&#30418;&#23610;&#23544;&#35745;&#31639;&#65288;&#20803;&#32032;&#22823;&#23567;&#65289;*/&#10;  Element Height = content Height(Height&#21253;&#21547;&#20102;&#20803;&#32032;&#20869;&#23481;&#23485;&#24230;&#65292;&#36793;&#26694;&#23485;&#24230;&#65292;&#20869;&#36317;&#23485;&#24230;)&#10;  Element Width = content Width(Width&#21253;&#21547;&#20102;&#20803;&#32032;&#20869;&#23481;&#23485;&#24230;&#12289;&#36793;&#26694;&#23485;&#24230;&#12289;&#20869;&#36317;&#23485;&#24230;)</span><br></pre></td></tr></table></figure></p>
+<h3 id="CSS3-box-sizing"><a href="#CSS3-box-sizing" class="headerlink" title="CSS3 box-sizing"></a>CSS3 box-sizing</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">box-sizing &#65306; content-box || border-box || inherit</span><br></pre></td></tr></table></figure>
+<h4 id="box-sizing现代浏览器都支持，但IE家族只有IE8版本以上才支持，虽然现代浏览器支持box-sizing，但有些浏览器还是需要加上自己的前缀，Mozilla需要加上-moz-，Webkit内核需要加上-webkit-，Presto内核-o-IE8-ms-，所以box-sizing兼容浏览器时需要加上各自的前缀"><a href="#box-sizing现代浏览器都支持，但IE家族只有IE8版本以上才支持，虽然现代浏览器支持box-sizing，但有些浏览器还是需要加上自己的前缀，Mozilla需要加上-moz-，Webkit内核需要加上-webkit-，Presto内核-o-IE8-ms-，所以box-sizing兼容浏览器时需要加上各自的前缀" class="headerlink" title="box-sizing现代浏览器都支持，但IE家族只有IE8版本以上才支持，虽然现代浏览器支持box-sizing，但有些浏览器还是需要加上自己的前缀，Mozilla需要加上-moz-，Webkit内核需要加上-webkit-，Presto内核-o-,IE8-ms-，所以box-sizing兼容浏览器时需要加上各自的前缀"></a>box-sizing现代浏览器都支持，但IE家族只有IE8版本以上才支持，虽然现代浏览器支持box-sizing，但有些浏览器还是需要加上自己的前缀，Mozilla需要加上-moz-，Webkit内核需要加上-webkit-，Presto内核-o-,IE8-ms-，所以box-sizing兼容浏览器时需要加上各自的前缀</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/*Content box*/&#10; Element &#123;&#10;    -moz-box-sizing: content-box;  /*Firefox3.5+*/&#10;    -webkit-box-sizing: content-box; /*Safari3.2+*/&#10;    -o-box-sizing: content-box; /*Opera9.6*/&#10;    -ms-box-sizing: content-box; /*IE8*/&#10;    box-sizing: content-box; /*W3C&#26631;&#20934;(IE9+&#65292;Safari5.1+,Chrome10.0+,Opera10.6+&#37117;&#31526;&#21512;box-sizing&#30340;w3c&#26631;&#20934;&#35821;&#27861;)*/&#10; &#125;&#10;       &#10; /*Border box*/&#10; Element &#123;&#10;    -moz-box-sizing: border-box;  /*Firefox3.5+*/&#10;    -webkit-box-sizing: border-box; /*Safari3.2+*/&#10;    -o-box-sizing: border-box; /*Opera9.6*/&#10;    -ms-box-sizing: border-box; /*IE8*/&#10;    box-sizing: border-box; /*W3C&#26631;&#20934;(IE9+&#65292;Safari5.1+,Chrome10.0+,Opera10.6+&#37117;&#31526;&#21512;box-sizing&#30340;w3c&#26631;&#20934;&#35821;&#27861;)*/&#10; &#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+  </div>
+</article>
+
+
+
+
+
+  <section class="duoshuo-comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="" data-title="也来谈css 盒子模型" data-url="http://yoursite.com/2015/10/03/也来谈css-盒子模型/index.html"></div>
+    <!-- 多说评论框 end -->
+  </section>
+
+
+</div>
+
+  
+
+  <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"zylqmjforever"};
+(function() {
+  var ds = document.createElement('script');
+  ds.type = 'text/javascript';ds.async = true;
+  ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+  ds.charset = 'UTF-8';
+  (document.getElementsByTagName('head')[0]
+   || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+<!-- 多说公共JS代码 end -->
+
+</body>
+</html>

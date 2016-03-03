@@ -36,8 +36,18 @@
   $(document).ready(function () {
     $('.content-home').addClass("magictime puffIn boingInUp")
     $(".item").addClass('magictime puffIn');
-    $(".item").addClass('magictime puffIn boingInUp')
-  })
+    $(".item").addClass('magictime puffIn boingInUp');
+    var url = 'https://api.flickr.com/services/feeds/photos_public.gne?tags=cats&format=json&jsoncallback=?';
+    $.ajax({
+      url:url,
+      type : 'GET',
+      success : function (err,res) {
+        if (err) {console.log(err) };
+        console.log(res)
+      }
+
+    })
+  });
   </script>
 </head>
 
@@ -109,15 +119,27 @@
     <a href="" class="text-year">
    -->
     Javascript Nodejs Css Linux
-    <span class="category-count">( 1 )</span>
+    <span class="category-count">( 3 )</span>
   <!--
   </a>
    -->
 </li>
 <li class="item-post item">
-  <span class="post-date">02-28</span>
+  <span class="post-date">10-28</span>
 
-  <a class="post-title" href="/2016/02/28/将本地hexo项目部署在阿里云git服务器/">将本地hexo项目部署在阿里云git服务器</a>
+  <a class="post-title" href="/2015/10/28/将本地hexo项目部署在阿里云git服务器/">将本地hexo项目部署在阿里云git服务器</a>
+
+</li>
+<li class="item-post item">
+  <span class="post-date">10-03</span>
+
+  <a class="post-title" href="/2015/10/03/也来谈css-盒子模型/">也来谈css 盒子模型</a>
+
+</li>
+<li class="item-post item">
+  <span class="post-date">01-03</span>
+
+  <a class="post-title" href="/2016/01/03/nodejs-项目部署在阿里云ECS/">nodejs 项目部署在阿里云ECS</a>
 
 </li>
 </ul>
