@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>自己动手写一个简易版MVVM 的模版引擎 | zylqmjforever</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="zylqmjforever,前端,frontend,design,JavaScript" />
+  
+
+  <meta name="description" content="用正则写一个简单的模版引擎模版引擎在前端已经很普遍了，Angular,React,avalon等框架中模版引擎运用的非常成熟，但是一直不知道它们具体是如何实现的。下面自己动手写一个，只有简单的插入数据的功能，对于循环遍历等实现，功力尚浅，需再修炼。12345678910var str = &apos;My name is &amp;#123;data.name&amp;#125;,my age is &amp;#123;data.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="自己动手写一个简易版MVVM 的模版引擎">
+<meta property="og:url" content="http://yoursite.com/2016/04/12/自己动手写一个简易版MVVM-的模版引擎/index.html">
+<meta property="og:site_name" content="zylqmjforever">
+<meta property="og:description" content="用正则写一个简单的模版引擎模版引擎在前端已经很普遍了，Angular,React,avalon等框架中模版引擎运用的非常成熟，但是一直不知道它们具体是如何实现的。下面自己动手写一个，只有简单的插入数据的功能，对于循环遍历等实现，功力尚浅，需再修炼。12345678910var str = &apos;My name is &amp;#123;data.name&amp;#125;,my age is &amp;#123;data.">
+<meta property="og:image" content="http://bruce.u.qiniudn.com/2013/11/27/reading/photos-0.jpg">
+<meta property="og:updated_time" content="2016-04-12T02:37:10.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="自己动手写一个简易版MVVM 的模版引擎">
+<meta name="twitter:description" content="用正则写一个简单的模版引擎模版引擎在前端已经很普遍了，Angular,React,avalon等框架中模版引擎运用的非常成熟，但是一直不知道它们具体是如何实现的。下面自己动手写一个，只有简单的插入数据的功能，对于循环遍历等实现，功力尚浅，需再修炼。12345678910var str = &apos;My name is &amp;#123;data.name&amp;#125;,my age is &amp;#123;data.">
+  
+  
+
+  
+
+
+  <link rel="stylesheet" href="/css/styles.css" type="text/css">
+  
+
+  
+
+  <script src="http://cdn.bootcss.com/jquery/3.0.0-beta1/jquery.min.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function () {
+    $('.content-home').addClass("magictime puffIn boingInUp")
+    $(".item").addClass('magictime puffIn');
+    $(".item").addClass('magictime puffIn boingInUp');
+    var url = 'https://api.flickr.com/services/feeds/photos_public.gne?tags=cats&format=json&jsoncallback=?';
+    $.ajax({
+      url:url,
+      type : 'GET',
+      success : function (err,res) {
+        if (err) {console.log(err) };
+        console.log(res)
+      }
+
+    })
+  });
+  </script>
+</head>
+
+<body>
+  <div class="content-post">
+  <div class="toolbox">
+  <div class="toolbox-entry">盒子</div>
+  <ul class="list-toolbox">
+    
+      
+        <li class="item-toolbox">
+          <a href="/">首页</a>
+        </li>
+      
+    
+      
+        <li class="item-toolbox">
+          <a href="/archives/">博客</a>
+        </li>
+      
+    
+      
+        <li class="item-toolbox">
+          <a href="/category/">分类</a>
+        </li>
+      
+    
+      
+        <li class="item-toolbox">
+          <a href="/tags/">标签</a>
+        </li>
+      
+    
+      
+        <li class="item-toolbox">
+          <a href="/about/">关于</a>
+        </li>
+      
+    
+      
+        <li class="item-toolbox">
+          <a href="/atom.xml">RSS</a>
+        </li>
+      
+    
+  </ul>
+</div>
+
+  <article id="post-自己动手写一个简易版MVVM-的模版引擎" class="article article-type-post" itemscope itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">自己动手写一个简易版MVVM 的模版引擎</h1>
+
+    <div class="article-meta">
+      <span>2016-04-12</span>
+
+      <span> | </span>
+
+      <span class="article-author">zyl</span>
+
+      <span> | </span>
+
+      
+  <span class="article-category">
+    <a class="article-category-link" href="/categories/Javascript-Nodejs-Css-Linux/">Javascript Nodejs Css Linux</a>
+  </span>
+
+
+    </div>
+  </header>
+
+  <div class="article-inner">
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="用正则写一个简单的模版引擎"><a href="#用正则写一个简单的模版引擎" class="headerlink" title="用正则写一个简单的模版引擎"></a>用正则写一个简单的模版引擎</h3><h4 id="模版引擎在前端已经很普遍了，Angular-React-avalon等框架中模版引擎运用的非常成熟，但是一直不知道它们具体是如何实现的。下面自己动手写一个，只有简单的插入数据的功能，对于循环遍历等实现，功力尚浅，需再修炼。"><a href="#模版引擎在前端已经很普遍了，Angular-React-avalon等框架中模版引擎运用的非常成熟，但是一直不知道它们具体是如何实现的。下面自己动手写一个，只有简单的插入数据的功能，对于循环遍历等实现，功力尚浅，需再修炼。" class="headerlink" title="模版引擎在前端已经很普遍了，Angular,React,avalon等框架中模版引擎运用的非常成熟，但是一直不知道它们具体是如何实现的。下面自己动手写一个，只有简单的插入数据的功能，对于循环遍历等实现，功力尚浅，需再修炼。"></a>模版引擎在前端已经很普遍了，Angular,React,avalon等框架中模版引擎运用的非常成熟，但是一直不知道它们具体是如何实现的。下面自己动手写一个，只有简单的插入数据的功能，对于循环遍历等实现，功力尚浅，需再修炼。</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'My name is &#123;data.name&#125;,my age is &#123;data.age&#125;,my girlfriend is very &#123;data.dec&#125;,I live in &#123;data.addr&#125;,I join in &#123;data.group.name&#125;'</span>;</span><br><span class="line"><span class="keyword">var</span> data = &#123;</span><br><span class="line">	name:<span class="string">"zyl"</span>,</span><br><span class="line">	age:<span class="number">24</span>,</span><br><span class="line">	dec:<span class="string">'beautiful'</span>,</span><br><span class="line">	addr:<span class="string">'BeiJing'</span>,</span><br><span class="line">	group:&#123;</span><br><span class="line">		name:<span class="string">'Github'</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">template</span>(<span class="params">str,data</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> strc = str.replace(<span class="regexp">/\&#123;(\w+)((\.\w+)*)\&#125;/g</span>,<span class="function"><span class="keyword">function</span>(<span class="params">m,n1,n2</span>) </span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(!n2)&#123;</span><br><span class="line">			<span class="keyword">if</span>(n1)&#123;</span><br><span class="line">				<span class="keyword">if</span>(<span class="keyword">typeof</span> data == <span class="string">'string'</span>)&#123;</span><br><span class="line">					<span class="keyword">return</span> data;</span><br><span class="line">				&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">					<span class="keyword">return</span>;</span><br><span class="line">				&#125;</span><br><span class="line"></span><br><span class="line">			&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">				<span class="keyword">return</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			<span class="keyword">var</span> tmp = n2.split(<span class="string">'.'</span>);</span><br><span class="line">			tmp.shift();</span><br><span class="line">			<span class="keyword">var</span> result = resultF(tmp,data);</span><br><span class="line">			<span class="keyword">if</span>(result&amp;&amp;<span class="keyword">typeof</span>(result)!==<span class="string">'Object'</span>)&#123;</span><br><span class="line">				<span class="keyword">return</span> result;</span><br><span class="line">			&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">				<span class="keyword">return</span> ;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;);</span><br><span class="line">	<span class="keyword">return</span> strc;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">resultF</span>(<span class="params">arr,obj</span>) </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> arr.reduce(<span class="function"><span class="keyword">function</span>(<span class="params">pre,next</span>) </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> pre[next]</span><br><span class="line">	&#125;,obj)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">template(str,data);</span><br><span class="line"></span><br><span class="line"><span class="string">"My name is zyl,my age is 24,my girlfriend is very beatiful,I live in BeiJing,I join in Github"</span></span><br></pre></td></tr></table></figure>
+<h4 id="其中resultF-函数的功能是：实现循环遍历出data对象的属性值-避免了在模版函数中写多次循环遍历，Array-的-reduce-函数十分强大，下一节总结一下下。"><a href="#其中resultF-函数的功能是：实现循环遍历出data对象的属性值-避免了在模版函数中写多次循环遍历，Array-的-reduce-函数十分强大，下一节总结一下下。" class="headerlink" title="其中resultF 函数的功能是：实现循环遍历出data对象的属性值,避免了在模版函数中写多次循环遍历，Array 的 reduce 函数十分强大，下一节总结一下下。"></a>其中resultF 函数的功能是：实现循环遍历出data对象的属性值,避免了在模版函数中写多次循环遍历，Array 的 reduce 函数十分强大，下一节总结一下下。</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> data = &#123;</span><br><span class="line">	name : <span class="string">'苍老师'</span>,</span><br><span class="line">	age : <span class="string">'18'</span>,</span><br><span class="line">	dec : <span class="string">'苍老师永远18岁'</span>,</span><br><span class="line">	role : <span class="string">'苍老湿的角色大家都懂得'</span>,</span><br><span class="line">	coperate : &#123;</span><br><span class="line">		company: &#123;</span><br><span class="line">			name :<span class="string">'库里几哇什么什么的'</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> companyName = resultF([<span class="string">'coperate'</span>,<span class="string">'company'</span>,<span class="string">'name'</span>],data);</span><br><span class="line"><span class="built_in">console</span>.log(companyName);<span class="comment">//库里几哇什么什么的</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+  </div>
+</article>
+
+
+
+
+
+  <section class="duoshuo-comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="" data-title="自己动手写一个简易版MVVM 的模版引擎" data-url="http://yoursite.com/2016/04/12/自己动手写一个简易版MVVM-的模版引擎/index.html"></div>
+    <!-- 多说评论框 end -->
+  </section>
+
+
+</div>
+
+  
+
+  <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"zylqmjforever"};
+(function() {
+  var ds = document.createElement('script');
+  ds.type = 'text/javascript';ds.async = true;
+  ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+  ds.charset = 'UTF-8';
+  (document.getElementsByTagName('head')[0]
+   || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+<!-- 多说公共JS代码 end -->
+
+</body>
+</html>
